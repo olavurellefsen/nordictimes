@@ -39,9 +39,12 @@ const Welcome = (props) => (
   <AlertContainer>
     <AlertBody>
       <AlertBodyParagraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In imperdiet gravida tellus, non molestie arcu eleifend eget.
-        Etiam porta ultrices vestibulum. Nulla placerat feugiat varius. Vestibulum ante ipsum primis in faucibus orci luctus 
-        et ultrices posuere cubilia Curae; Aenean dictum vel enim a facilisis. Curabitur iaculis ultrices nisi. 
+        With this tool, it is possible to explore the results of energy scenarios for the Nordic countries, with specific focus on 
+        Denmark, Norway and Sweden. The scenarios have been modelled by soft linking the energy system model TIMES-Nordic and the 
+        power and heat model Balmorel.
+      </AlertBodyParagraph>
+      <AlertBodyParagraph>
+        Explore the results by selecting a scenario on the left menu, and analysing the graphs below.
       </AlertBodyParagraph>
     </AlertBody>
     <CloseWindowIcon onClick={(event) => props.closeWelcome(event, 'showWelcome', false)}>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import breakpoint from 'styled-components-breakpoint'
 import { Link } from 'react-router-dom'
 import ScenarioSelectionList from '../scenarioSelection/ScenarioSelectionList'
+import ScenarioMultiSelectionList from '../scenarioSelection/ScenarioMultiSelectionList'
 
 const MenuLayout = styled.div`
   display: none;
@@ -141,9 +142,17 @@ class ScenarioSelectionMenu extends React.Component {
             updateScenarioSelection={this.props.updateScenarioSelection}
             name='scenarioSelection'
             selectedValue={this.props.scenarioSelection.scenarioSelection}
-            selectedValue2={this.props.scenarioSelection.scenarioSelection2}
             dimensionOptions={this.props.scenarioCombinations.scenarioOptions}
             dimensionTitle='Scenarios'
+            narrowVersion={false}
+          />
+          <MenuSeparatorLine />
+          <ScenarioMultiSelectionList
+            updateRegionSelection={this.props.updateRegionSelection}
+            name='regionSelection'
+            selectedValues={this.props.scenarioSelection.regionSelection}
+            dimensionOptions={this.props.scenarioCombinations.regionOptions}
+            dimensionTitle='Regions'
             narrowVersion={false}
           />
         </ScenarioSelection>
@@ -160,6 +169,7 @@ class ScenarioSelectionMenu extends React.Component {
 
 ScenarioSelectionMenu.propTypes = {
   updateScenarioSelection: PropTypes.func.isRequired,
+  updateRegionSelection: PropTypes.func.isRequired,
   scenarioSelection: PropTypes.object.isRequired,
   scenarioCombinations: PropTypes.object.isRequired
 }

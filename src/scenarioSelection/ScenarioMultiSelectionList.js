@@ -23,11 +23,11 @@ const ScenarioOption = styled.div`
   position: relative;
   width: 100%;
   border-radius: 0;
-  background-color: ${props => (props.selected ? '#b50404' : (props.selected2 ? 'green' : 'inherit'))};
+  background-color: ${props => (props.selected ? 'gray' : (props.selected2 ? 'green' : 'inherit'))};
   color: ${props => (props.selected ? 'white' : (props.selected2 ? 'white' : 'rgb(184,176,183)'))};
   &:hover {
     cursor: pointer;
-    background-color: ${props => (props.selected ? '#b50404' : (props.selected2 ? 'green' : '#555'))};
+    background-color: ${props => (props.selected ? 'black' : (props.selected2 ? 'green' : '#555'))};
     > * {
       display: block;
       font-weight: ${props => (props.selected ? 'bold' : (props.selected2 ? 'bold' : 'normal'))};
@@ -35,15 +35,15 @@ const ScenarioOption = styled.div`
   }
   `
 
-class ScenarioSelectionList extends React.Component {
+class ScenarioMultiSelectionList extends React.Component {
 
   handleChange = (event, value) => {
-    this.props.updateScenarioSelection(event, this.props.name, value)
+    this.props.updateRegionSelection(event, this.props.name, value)
   }
 
   render() {
     const { dimensionOptions, dimensionTitle, narrowVersion } = this.props
-    let stringValue=this.props.selectedValue.toString();
+    let selectedValues=this.props.selectedValues;
     let scenarioOptions = dimensionOptions.map(option =>
       {
         let optionValue=option.name;
@@ -51,7 +51,7 @@ class ScenarioSelectionList extends React.Component {
           <ScenarioOption
             key={option.id}
             value={optionValue}
-            selected={optionValue===stringValue}
+            selected={selectedValues.indexOf(optionValue)>-1}
             onClick={(event) => this.handleChange(event, optionValue)}
             narrowVersion={narrowVersion}
           >
@@ -71,13 +71,13 @@ class ScenarioSelectionList extends React.Component {
   }
 }
 
-ScenarioSelectionList.propTypes = {
-  updateScenarioSelection: PropTypes.func.isRequired,
+ScenarioMultiSelectionList.propTypes = {
+  updateRegionSelection: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  selectedValue: PropTypes.any.isRequired,
+  selectedValues: PropTypes.array.isRequired,
   dimensionOptions: PropTypes.array.isRequired,
   dimensionTitle: PropTypes.string.isRequired,
   narrowVersion: PropTypes.bool.isRequired
 }
 
-export default ScenarioSelectionList;
+export default ScenarioMultiSelectionList;

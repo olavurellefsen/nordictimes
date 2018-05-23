@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {VictoryChart, VictoryLabel, VictoryLegend, VictoryGroup, VictoryStack, VictoryTheme, VictoryAxis, VictoryBar, VictoryLine, VictoryTooltip} from 'victory';
+import {VictoryChart, VictoryLabel, VictoryLegend, VictoryGroup, VictoryStack, VictoryTheme, VictoryAxis, VictoryArea, VictoryLine, VictoryTooltip} from 'victory';
 import stackedBar from '../data/stackedBar';
 import line from '../data/line';
 
@@ -197,7 +197,7 @@ class StackedBarChart extends React.Component {
               {              
                 chartData.map(
                   (chartGroup, i) => (
-                    <VictoryBar 
+                    <VictoryArea 
                       key={chartGroup.indicatorGroup}
                       data={chartGroup.indicatorGroupValues.map(
                         chartGroupValue => (

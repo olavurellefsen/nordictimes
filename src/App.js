@@ -45,7 +45,7 @@ export class App extends React.Component {
     super(props);
     this.state = {
       scenarioSelection: "Nordic_Base",
-      scenarioSelection2: "",
+      regionSelection: ['DKE','DKW' ,'NO1', 'NO2','SE1','SE2','SE3','SE4'],
       showWelcome: true,
     }
     this.scenarioCombinations = scenarioCombinations.scenarioCombinations
@@ -57,24 +57,22 @@ export class App extends React.Component {
 
   UpdateScenarioSelection = (e, name, value) => {
     e.preventDefault();
-    if(this.state.scenarioSelection2!=="") {
-      if(value===this.state.scenarioSelection) {
-        this.setState(changeScenario("scenarioSelection", this.state.scenarioSelection2));
-        this.setState(changeScenario("scenarioSelection2", ""));
-      } else {
-        if(value===this.state.scenarioSelection2) {
-          this.setState(changeScenario("scenarioSelection2", ""));
-        } else {
-          this.setState(changeScenario("scenarioSelection2", value));
-        }
-      }
-    } else {
-      if(value!==this.state.scenarioSelection) {
-        this.setState(changeScenario("scenarioSelection2", value));
-      }      
-    }
+    this.setState(changeScenario(name, value));
     this.props.history.push('/');
   }
+
+  UpdateRegionSelection = (e, name, value) => {
+    e.preventDefault();
+    const regionSelection = this.state.regionSelection;
+    if(regionSelection.indexOf(value)>-1) {
+      if(regionSelection.length>1) {
+        this.setState(changeScenario(name, regionSelection.filter(item => item !== value)));
+      }
+    } else {
+      this.setState(changeScenario(name, regionSelection.concat(value)));
+    }
+    this.props.history.push('/');
+  }  
 
   CloseWelcomeWidget = () => {
     this.setState({showWelcome: false});
@@ -90,11 +88,13 @@ export class App extends React.Component {
                 scenarioSelection={this.state}
                 scenarioCombinations={this.scenarioCombinations}
                 updateScenarioSelection={this.UpdateScenarioSelection}
+                updateRegionSelection={this.UpdateRegionSelection}
               />
               <LeftMenuMobile
                 scenarioSelection={this.state}
                 scenarioCombinations={this.scenarioCombinations}
                 updateScenarioSelection={this.UpdateScenarioSelection}
+                updateRegionSelection={this.UpdateRegionSelection}
               />
             </Content>
           </Column>

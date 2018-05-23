@@ -108,7 +108,7 @@ class ScenarioSelectionMenu extends React.Component {
             selectedValue={this.props.scenarioSelection.scenarioSelection}
             selectedValue2={this.props.scenarioSelection.scenarioSelection2}
             dimensionOptions={this.props.scenarioCombinations.scenarioOptions}
-            dimensionTitle='Scenarier'
+            dimensionTitle='Scenarios'
             narrowVersion={true}
           />
         </ScenarioSelection>

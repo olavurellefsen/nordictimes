@@ -25,6 +25,22 @@ const Charts = (props) => {
         <StackedBarChart chartName='Biomass Consumption' chartTitle='Biomass Consumption' selectedScenario={selectedScenario} 
         selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={1000}
         />
+        <StackedBarChart chartName='District Heating Supply' chartTitle='District Heating Supply' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={400}
+        />
+        <StackedBarChart chartName='Power Production' chartTitle='Power Production' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={1600}
+        />
+        <StackedBarChart chartName='System Costs' chartTitle='System Costs' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="M Euro" minY={0} maxY={80000}
+        />
+        <StackedBarChart chartName='Regional Power Trade' chartTitle='Regional Power Trade' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={800}
+        />
+        <StackedBarChart chartName='Power Trade Map' chartTitle='Power Trade Map' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={500}
+        />
+
       </Flex>
     </MainArea>
   );

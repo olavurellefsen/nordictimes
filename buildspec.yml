@@ -9,6 +9,6 @@ phases:
       - npm run build
   post_build:
     commands:
-      - aws s3 sync build/ s3://danish-energy-agreement
-      - aws cloudfront create-invalidation --distribution-id ECE0EUN7T2UQY --paths "/*"
+      - aws s3 sync build/ s3://nordictimes
+      - aws cloudfront create-invalidation --distribution-id E1ZCIZG6G387RO --paths "/*"
   

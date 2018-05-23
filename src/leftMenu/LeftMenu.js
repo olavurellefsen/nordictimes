@@ -124,7 +124,7 @@ class ScenarioSelectionMenu extends React.Component {
         <MenuHeader>
           <MenuHeaderLeft>
             <MenuTitle to='/'>
-              Nordic Times
+              TIMES-Nordic
             </MenuTitle>
             <MenuRoutes>
               <MenuItem to='/about'>About the tool</MenuItem>
@@ -143,7 +143,7 @@ class ScenarioSelectionMenu extends React.Component {
             selectedValue={this.props.scenarioSelection.scenarioSelection}
             selectedValue2={this.props.scenarioSelection.scenarioSelection2}
             dimensionOptions={this.props.scenarioCombinations.scenarioOptions}
-            dimensionTitle='Scenarier'
+            dimensionTitle='Scenarios'
             narrowVersion={false}
           />
         </ScenarioSelection>

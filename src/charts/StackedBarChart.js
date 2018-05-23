@@ -106,7 +106,7 @@ class StackedBarChart extends React.Component {
             }}
             colorScale = {colors}
             data={stackedBar.data.scenarios.find(o => o.scenario === scenario).indicators
-              .find(o => o.indicator === chartName).regions.find(o => o.region === 'DKE').indicatorGroups.map(
+              .find(o => o.indicator === chartName).regions.find(o => o.region !== 'XXX').indicatorGroups.map(
               (chartGroup, i) => (
                 { name: chartGroup.indicatorGroup.concat("        ").substr(0,16), fill: colors[i] }
               )
@@ -117,7 +117,7 @@ class StackedBarChart extends React.Component {
             <VictoryStack>
               {              
                 stackedBar.data.scenarios.find(o => o.scenario === scenario).indicators
-                .find(o => o.indicator === chartName).regions.find(o => o.region === 'DKE').indicatorGroups.map(
+                .find(o => o.indicator === chartName).regions.find(o => o.region !== 'XXX').indicatorGroups.map(
                   (chartGroup, i) => (
                     <VictoryBar 
                       key={chartGroup.indicatorGroup}

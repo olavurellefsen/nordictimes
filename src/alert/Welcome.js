@@ -44,7 +44,7 @@ const Welcome = (props) => (
         power and heat model Balmorel.
       </AlertBodyParagraph>
       <AlertBodyParagraph>
-        Explore the results by selecting a scenario on the left menu, and analysing the graphs below.
+        Explore the results by selecting a scenario on the left menu, and analysing the charts below.
       </AlertBodyParagraph>
     </AlertBody>
     <CloseWindowIcon onClick={(event) => props.closeWelcome(event, 'showWelcome', false)}>

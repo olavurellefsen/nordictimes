@@ -10,7 +10,7 @@ import About from './pages/About'
 import ScenarioDescriptions from './pages/ScenarioDescriptions'
 import scenarioCombinations from './data/scenarioCombinations'
 
-ReactGA.initialize('UA-117950963-1');
+ReactGA.initialize('UA-119781342-1');
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 const Page = styled.div`

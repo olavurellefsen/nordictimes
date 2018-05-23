@@ -37,15 +37,15 @@ export default () => (
     <AboutHeader>Scenario descriptions</AboutHeader>
     <AboutHeader2>Nordic Base</AboutHeader2>
     <AboutBody>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In imperdiet gravida tellus, non molestie arcu eleifend eget.
-      Etiam porta ultrices vestibulum. Nulla placerat feugiat varius. Vestibulum ante ipsum primis in faucibus orci luctus et 
-      ultrices posuere cubilia Curae; Aenean dictum vel enim a facilisis. Curabitur iaculis ultrices nisi.
+      This scenario reproduces the assumptions of the study Nordic Energy Technology Perspectives - NETP (IEA, 2016), 
+      including demands drivers for industry, transport and buildings, fuel prices projections, technical potentials of renewable 
+      energy technologies and biomass resources. Moreover, a CO2 tax is imposed on CO2 emissions from all sectors, aligned to the 
+      projected CO2 price in NETP (2016).
     </AboutBody>
-    <AboutHeader2>Nordic CO2 IND nog</AboutHeader2>
+    <AboutHeader2>Nordic CO2 2040</AboutHeader2>
     <AboutBody>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In imperdiet gravida tellus, non molestie arcu eleifend eget.
-      Etiam porta ultrices vestibulum. Nulla placerat feugiat varius. Vestibulum ante ipsum primis in faucibus orci luctus et 
-      ultrices posuere cubilia Curae; Aenean dictum vel enim a facilisis. Curabitur iaculis ultrices nisi.
+      This scenario builds up on the scenario Nordic_Base and analyses the introduction of carbon neutral and 
+      carbon negative technologies, by adding a bound on the total CO2 emissions from all sectors to be zero from 2040 onwards.
     </AboutBody>
      <AboutBody>
        <Link to='/'>Back to the main page</Link>

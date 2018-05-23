@@ -25,22 +25,27 @@ const Charts = (props) => {
         <StackedBarChart chartName='Biomass Consumption' chartTitle='Biomass Consumption' selectedScenario={selectedScenario} 
         selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={1000}
         />
-        <StackedBarChart chartName='District Heating Supply' chartTitle='District Heating Supply' selectedScenario={selectedScenario} 
-        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={400}
+        <StackedBarChart chartName='Captured CO2' chartTitle='Captured CO2' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="Kt" minY={0} maxY={50000}
         />
         <StackedBarChart chartName='Power Production' chartTitle='Power Production' selectedScenario={selectedScenario} 
-        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={1600}
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={2000}
+        />
+        <StackedBarChart chartName='District Heating Supply' chartTitle='District Heating Supply' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={600}
+        />
+        <StackedBarChart chartName='Industry fuel consumption' chartTitle='Industry Fuel Consumption' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={1400}
+        />        
+        <StackedBarChart chartName='Car Stock' chartTitle='Car Stock' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="k vehicles" minY={0} maxY={12000}
+        />
+        <StackedBarChart chartName='Power Trade' chartTitle='Power Trade' selectedScenario={selectedScenario} 
+        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={500}
         />
         <StackedBarChart chartName='System Costs' chartTitle='System Costs' selectedScenario={selectedScenario} 
         selectedScenario2={selectedScenario2} combinedChart={false} label="M Euro" minY={0} maxY={80000}
         />
-        <StackedBarChart chartName='Regional Power Trade' chartTitle='Regional Power Trade' selectedScenario={selectedScenario} 
-        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={800}
-        />
-        <StackedBarChart chartName='Power Trade Map' chartTitle='Power Trade Map' selectedScenario={selectedScenario} 
-        selectedScenario2={selectedScenario2} combinedChart={false} label="PJ" minY={0} maxY={500}
-        />
-
       </Flex>
     </MainArea>
   );

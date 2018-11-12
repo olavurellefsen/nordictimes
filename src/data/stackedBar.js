@@ -19988,7 +19988,128 @@ export default {
                     ]
                   }
                 ]
-              }
+              },
+              {
+                "region": "SE4",
+                "indicatorGroups": [
+                  {
+                    "indicatorGroup": "CO2 captured from Biomass (industry)",
+                    "indicatorGroupValues": [
+                      {
+                        "period": "2010",
+                        "total": 0
+                      },
+                      {
+                        "period": "2020",
+                        "total": 0
+                      },
+                      {
+                        "period": "2030",
+                        "total": 0
+                      },
+                      {
+                        "period": "2040",
+                        "total": 0
+                      },
+                      {
+                        "period": "2050",
+                        "total": 0
+                      },
+                      {
+                        "period": "Potential",
+                        "total": 0
+                      }
+                    ]
+                  },
+                  {
+                    "indicatorGroup": "CO2 captured from Biomass (power)",
+                    "indicatorGroupValues": [
+                      {
+                        "period": "2010",
+                        "total": 0
+                      },
+                      {
+                        "period": "2020",
+                        "total": 0
+                      },
+                      {
+                        "period": "2030",
+                        "total": 0
+                      },
+                      {
+                        "period": "2040",
+                        "total": 12076.9653
+                      },
+                      {
+                        "period": "2050",
+                        "total": 15698.31255
+                      },
+                      {
+                        "period": "Potential",
+                        "total": 0
+                      }
+                    ]
+                  },
+                  {
+                    "indicatorGroup": "CO2 captured from coal (industry)",
+                    "indicatorGroupValues": [
+                      {
+                        "period": "2010",
+                        "total": 0
+                      },
+                      {
+                        "period": "2020",
+                        "total": 0
+                      },
+                      {
+                        "period": "2030",
+                        "total": 0
+                      },
+                      {
+                        "period": "2040",
+                        "total": 0
+                      },
+                      {
+                        "period": "2050",
+                        "total": 0
+                      },
+                      {
+                        "period": "Potential",
+                        "total": 0
+                      }
+                    ]
+                  },
+                  {
+                    "indicatorGroup": "CO2 captured from gas (industry)",
+                    "indicatorGroupValues": [
+                      {
+                        "period": "2010",
+                        "total": 0
+                      },
+                      {
+                        "period": "2020",
+                        "total": 0
+                      },
+                      {
+                        "period": "2030",
+                        "total": 0
+                      },
+                      {
+                        "period": "2040",
+                        "total": 0
+                      },
+                      {
+                        "period": "2050",
+                        "total": 0
+                      },
+                      {
+                        "period": "Potential",
+                        "total": 0
+                      }
+                    ]
+                  }
+                ]
+              }              
             ]
           },
           {

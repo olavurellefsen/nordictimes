@@ -44,6 +44,7 @@ class ScenarioSelectionList extends React.Component {
   render() {
     const { dimensionOptions, dimensionTitle, narrowVersion } = this.props
     let stringValue=this.props.selectedValue.toString();
+    let stringValue2=this.props.selectedValue2.toString();
     let scenarioOptions = dimensionOptions.map(option =>
       {
         let optionValue=option.name;
@@ -52,6 +53,7 @@ class ScenarioSelectionList extends React.Component {
             key={option.id}
             value={optionValue}
             selected={optionValue===stringValue}
+            selected2={optionValue===stringValue2}
             onClick={(event) => this.handleChange(event, optionValue)}
             narrowVersion={narrowVersion}
           >
@@ -71,10 +73,15 @@ class ScenarioSelectionList extends React.Component {
   }
 }
 
+ScenarioSelectionList.defaultProps = {
+  selectedValue2: ''
+}
+
 ScenarioSelectionList.propTypes = {
   updateScenarioSelection: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   selectedValue: PropTypes.any.isRequired,
+  selectedValue2: PropTypes.any,
   dimensionOptions: PropTypes.array.isRequired,
   dimensionTitle: PropTypes.string.isRequired,
   narrowVersion: PropTypes.bool.isRequired

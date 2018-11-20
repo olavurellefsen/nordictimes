@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {VictoryChart, VictoryLabel, VictoryLegend, VictoryGroup, VictoryStack, VictoryTheme, VictoryAxis, VictoryBar, VictoryTooltip} from 'victory';
-import stackedBar from '../data/stackedBar';
+import { getChartData } from './getChartData'
 
 const ChartHeader = styled(VictoryLabel)`
   text-anchor: start;
@@ -16,13 +16,11 @@ class StackedBarChart extends React.Component {
 
   render() {
     const scenario = this.props.selectedScenario;
+    const scenario2 = this.props.selectedScenario2;
     const region = this.props.selectedRegion;
     const chartName = this.props.chartName;
     const chartTitle = this.props.chartTitle;
     const periods = ['2010', '2020', '2030', '2040', '2050'];
-    if(this.props.showPotential) {
-      periods.push('potential');
-    }
     let gutter, rowGutter;
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
       gutter=0;
@@ -32,55 +30,11 @@ class StackedBarChart extends React.Component {
       rowGutter=-5;
     }    
 
-    const allEntriesForIndicator = stackedBar.data.scenarios.find(o => o.scenario === scenario).indicators.find(o => o.indicator === chartName);
-    const onlyRelevantRegions = allEntriesForIndicator.regions.filter(o => region.includes(o.region));
-    const relevantEntries = onlyRelevantRegions.map(region => region.indicatorGroups);
-    const flatten = relevantEntries.reduce((flat, next) => flat.concat(next) || []);
-    var chartData = [];
-    flatten.reduce( (res, value) => {
-      if(!res[value.indicatorGroup]) {
-        if(this.props.showPotential) {
-          res[value.indicatorGroup] = {
-            indicatorGroup: value.indicatorGroup,
-            indicatorGroupValues: [
-              {period: "2010", total: 0},
-              {period: "2020", total: 0},
-              {period: "2030", total: 0},
-              {period: "2040", total: 0},
-              {period: "2050", total: 0},
-              {period: "Potential", total: 0},
-            ]
-          };
-        } else {
-          res[value.indicatorGroup] = {
-            indicatorGroup: value.indicatorGroup,
-            indicatorGroupValues: [
-              {period: "2010", total: 0},
-              {period: "2020", total: 0},
-              {period: "2030", total: 0},
-              {period: "2040", total: 0},
-              {period: "2050", total: 0}
-            ]
-          };          
-        }
-        chartData.push(res[value.indicatorGroup]);
-      }
-      res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2010")[0].total +=
-        value.indicatorGroupValues.filter(entry => entry.period==="2010")[0].total;
-      res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2020")[0].total +=
-        value.indicatorGroupValues.filter(entry => entry.period==="2020")[0].total;
-      res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2030")[0].total +=
-        value.indicatorGroupValues.filter(entry => entry.period==="2030")[0].total;
-      res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2040")[0].total +=
-        value.indicatorGroupValues.filter(entry => entry.period==="2040")[0].total;
-      res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2050")[0].total +=
-        value.indicatorGroupValues.filter(entry => entry.period==="2050")[0].total;
-      if(this.props.showPotential) {
-        res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="Potential")[0].total +=
-          value.indicatorGroupValues.filter(entry => entry.period==="Potential")[0].total;        
-      }     
-      return res;
-    }, {});
+    let chartData = getChartData(scenario, chartName, region);
+    let chartData2 = []
+    if(scenario2 !== "") {
+      chartData2 = getChartData(scenario2, chartName, region);
+    }
 
     let yDomain = [0, 1];
     if(this.props.minY<0) {
@@ -94,6 +48,14 @@ class StackedBarChart extends React.Component {
       "#990066", "#660066", "#660099", "#3366cc", "#33ccff", "#99cc33", "#66cc00",
       "#aad199", "#45535c", "#471442", "#612e30", "#7a713c", "#09e682", "#160154", "#fc53ec",
       "#454023", "#4b7060", "#4221a6", "#f2aceb", "#ede095", "#0395f7", "#7346fa", "#82627f"
+    ];
+
+    const colors2 = [
+      "#2cbae6", "#96d957", "#cac364", "#5cd3ff", "#a998cb", "#c2d249", "#63b9c6", "#9cc5a8",
+      "#cfcc00", "#cf9900", "#cf6600", "#cf0000", "#690000", "#cf0099", "#9c3399",
+      "#690066", "#360066", "#360099", "#0366cc", "#03ccff", "#69cc33", "#36cc00",
+      "#7ad199", "#15535c", "#171442", "#312e30", "#4a713c", "#39e682", "#460154", "#cc53ec",
+      "#154023", "#1b7060", "#1221a6", "#c2aceb", "#bde095", "#3395f7", "#4346fa", "#52627f"
     ];
 
     return (
@@ -140,7 +102,7 @@ class StackedBarChart extends React.Component {
             )}
             labelComponent={<VictoryLabel style={{fontSize: '9px'}}/>}
           />
-          <VictoryGroup offset={20} style={{ data: { width: 10}}}>
+          <VictoryGroup offset={10} style={{ data: { width: 10}}}>
             <VictoryStack>
               {              
                 chartData.map(
@@ -165,6 +127,32 @@ class StackedBarChart extends React.Component {
                 )
               }
             </VictoryStack>
+            {scenario2 !== "" &&
+              <VictoryStack>
+                {              
+                  chartData2.map(
+                    (chartGroup, i) => (
+                      <VictoryBar 
+                        key={chartGroup.indicatorGroup}
+                        data={chartGroup.indicatorGroupValues.map(
+                          chartGroupValue => (
+                            {...chartGroupValue, 
+                              label: chartGroup.indicatorGroup + ': ' +
+                              (chartGroupValue.total/this.props.divideValues).toFixed(2) }
+                          )
+                        )}
+                        x='period'
+                        y={(datum) => datum['total'] / this.props.maxY}
+                        labelComponent={<VictoryTooltip/>}
+                        style={{
+                          data: {fill: colors2[i]}
+                        }}
+                      />
+                    )
+                  )
+                }
+              </VictoryStack>
+            }
           </VictoryGroup> 
           </VictoryChart>
       </div>
@@ -174,11 +162,12 @@ class StackedBarChart extends React.Component {
 
 StackedBarChart.defaultProps = {
   divideValues: 1,
-  showPotential: false
+  selectedScenario2: ''
 }
 
 StackedBarChart.propTypes = {
   selectedScenario: PropTypes.string.isRequired,
+  selectedScenario2: PropTypes.string,
   selectedRegion: PropTypes.array.isRequired, 
   chartName: PropTypes.string.isRequired,
   chartTitle: PropTypes.string.isRequired,
@@ -187,7 +176,6 @@ StackedBarChart.propTypes = {
   label: PropTypes.string.isRequired,
   divideValues: PropTypes.number,
   label2: PropTypes.string,
-  showPotential: PropTypes.bool
 }
 
 export default StackedBarChart;

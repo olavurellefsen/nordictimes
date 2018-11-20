@@ -44,8 +44,8 @@ export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scenarioSelection: "Nordic_Base",
-      regionSelection: ['DKE','DKW' ,'NO1', 'NO2','SE1','SE2','SE3','SE4'],
+      scenarioSelection: "Nordic CO2 Budget",
+      regionSelection: ['Denmark','Norway' ,'Sweden'],
       showWelcome: true,
     }
     this.scenarioCombinations = scenarioCombinations.scenarioCombinations

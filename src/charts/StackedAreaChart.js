@@ -25,6 +25,14 @@ class StackedBarChart extends React.Component {
     if(this.props.showPotential) {
       periods.push('potential');
     }
+    let gutter, rowGutter;
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+      gutter=0;
+      rowGutter=0;
+    } else {
+      gutter=-40;
+      rowGutter=-5;
+    }        
 
     const allEntriesForIndicator = stackedBar.data.scenarios.find(o => o.scenario === scenario).indicators.find(o => o.indicator === chartName);
     const onlyRelevantRegions = allEntriesForIndicator.regions.filter(o => region.includes(o.region));
@@ -177,8 +185,8 @@ class StackedBarChart extends React.Component {
           }          
           <VictoryLegend x={90} y={50}
             orientation="horizontal"
-            gutter={-40}
-            rowGutter={-5}
+            gutter={gutter}
+            rowGutter={rowGutter}
             symbolSpacer={4}
             itemsPerRow={3}
             style={{

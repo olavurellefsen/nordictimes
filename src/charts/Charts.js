@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Welcome from '../alert/Welcome'
 import StackedBarChart from './StackedBarChart'
-import StackedAreaChart from './StackedAreaChart'
 
 const MainArea = styled.div`
   flex: 1;
@@ -38,11 +37,11 @@ const Charts = (props) => {
         />
         <StackedBarChart chartName='Industry fuel consumption' chartTitle='Industry Fuel Consumption' selectedScenario={selectedScenario} 
         selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={1800}
-        />        
-        <StackedAreaChart chartName='Transport Passenger Consumption' chartTitle='Transport Passenger Consumption' selectedScenario={selectedScenario} 
+        />
+        <StackedBarChart chartName='Transport Passenger Consumption' chartTitle='Transport Passenger Consumption' selectedScenario={selectedScenario} 
         selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={720}
         />        
-        <StackedAreaChart chartName='Transport Freight Consumption' chartTitle='Transport Freight Consumption' selectedScenario={selectedScenario} 
+        <StackedBarChart chartName='Transport Freight Consumption' chartTitle='Transport Freight Consumption' selectedScenario={selectedScenario} 
         selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={480}
         />                
         <StackedBarChart chartName='Car Stock' chartTitle='Car Stock' selectedScenario={selectedScenario} 

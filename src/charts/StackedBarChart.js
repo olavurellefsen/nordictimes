@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {VictoryChart, VictoryLabel, VictoryLegend, VictoryGroup, VictoryStack, VictoryTheme, VictoryAxis, VictoryBar, VictoryLine, VictoryTooltip} from 'victory';
+import {VictoryChart, VictoryLabel, VictoryLegend, VictoryGroup, VictoryStack, VictoryTheme, VictoryAxis, VictoryBar, VictoryTooltip} from 'victory';
 import stackedBar from '../data/stackedBar';
-import line from '../data/line';
 
 const ChartHeader = styled(VictoryLabel)`
   text-anchor: start;
@@ -20,7 +19,6 @@ class StackedBarChart extends React.Component {
     const region = this.props.selectedRegion;
     const chartName = this.props.chartName;
     const chartTitle = this.props.chartTitle;
-    const combinedChart = this.props.combinedChart;
     const periods = ['2010', '2020', '2030', '2040', '2050'];
     if(this.props.showPotential) {
       periods.push('potential');
@@ -84,52 +82,10 @@ class StackedBarChart extends React.Component {
       return res;
     }, {});
 
-    if(combinedChart===true) {
-      const allEntriesForIndicatorLine = line.data.scenarios.find(o => o.scenario === scenario).indicators.find(o => o.indicator === chartName);
-      const onlyRelevantRegionsLine = allEntriesForIndicatorLine.regions.filter(o => region.includes(o.region));
-      const relevantEntriesLine = onlyRelevantRegionsLine.map(region => region.indicatorGroups);
-      const flattenLine = relevantEntriesLine.reduce((flat, next) => flat.concat(next) || []);
-      var chartDataLine = [];
-      flattenLine.reduce( (res, value) => {
-        if(!res[value.indicatorGroup]) {
-          res[value.indicatorGroup] = {
-            indicatorGroup: value.indicatorGroup,
-            indicatorGroupValues: [
-              {period: "2010", total: 0},
-              {period: "2020", total: 0},
-              {period: "2030", total: 0},
-              {period: "2040", total: 0},
-              {period: "2050", total: 0}
-            ]
-          };
-          chartDataLine.push(res[value.indicatorGroup]);
-        }
-        res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2010")[0].total +=
-          value.indicatorGroupValues.filter(entry => entry.period==="2010")[0].total;
-        res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2020")[0].total +=
-          value.indicatorGroupValues.filter(entry => entry.period==="2020")[0].total;
-        res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2030")[0].total +=
-          value.indicatorGroupValues.filter(entry => entry.period==="2030")[0].total;
-        res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2040")[0].total +=
-          value.indicatorGroupValues.filter(entry => entry.period==="2040")[0].total;
-        res[value.indicatorGroup].indicatorGroupValues.filter(entry => entry.period==="2050")[0].total +=
-          value.indicatorGroupValues.filter(entry => entry.period==="2050")[0].total;
-        return res;
-      }, {});    
-    }
-
-    let maxY2 = 1;
-    let minY2 = 0;
-    if(combinedChart===true) {
-      maxY2 = this.props.maxY2;
-      minY2 = this.props.minY2;
-    }
-
     let yDomain = [0, 1];
-    if(this.props.minY<0 || minY2<0) {
+    if(this.props.minY<0) {
       let stackedRatio = this.props.minY/this.props.maxY;
-      let lineRatio = minY2/maxY2;
-      yDomain = stackedRatio<lineRatio ? [stackedRatio,1] : [lineRatio,1];
+      yDomain = [stackedRatio,1];
     }
 
     const colors = [
@@ -166,23 +122,7 @@ class StackedBarChart extends React.Component {
             tickFormat={(t) => (t*this.props.maxY/this.props.divideValues)}
             tickValues={[0, 0.25, 0.5, 0.75]}
             label={this.props.label}
-          />
-          {combinedChart===true &&
-            <VictoryAxis
-              dependentAxis
-              key={3}
-              offsetX={330}
-              label={this.props.label2}
-              style={{
-                axis: { stroke: 'gray' },
-                axisLabel: { fill: 'gray', padding: -50},
-                ticks: { padding: -25 },
-                tickLabels: { fill: 'gray', textAnchor: 'start', fontSize: '8px' }
-              }}              
-              tickFormat={(t) => `${this.props.Y2Percentage===false ? (t*maxY2) : (t*maxY2*100)+'%'}`}
-              tickValues={[0, 0.25, 0.5, 0.75, 1.0]}
-            />
-          }          
+          />    
           <VictoryLegend x={90} y={50}
             orientation="horizontal"
             gutter={gutter}
@@ -226,23 +166,6 @@ class StackedBarChart extends React.Component {
               }
             </VictoryStack>
           </VictoryGroup> 
-          {(combinedChart===true) &&
-            <VictoryGroup>
-              <VictoryLine
-                data={
-                  chartDataLine[0].indicatorGroupValues.map(
-                    entry => (
-                      {...entry}
-                    )                    
-                  )
-                }
-                x='period'
-                style={{ data: { stroke: 'red' }, labels: {fontSize: '8px'} }}
-                y={(datum) => datum['total'] / maxY2}
-                animate={{ duration: 500 }}
-              />
-            </VictoryGroup>
-          }
           </VictoryChart>
       </div>
     )
@@ -259,15 +182,11 @@ StackedBarChart.propTypes = {
   selectedRegion: PropTypes.array.isRequired, 
   chartName: PropTypes.string.isRequired,
   chartTitle: PropTypes.string.isRequired,
-  combinedChart: PropTypes.bool.isRequired,
   minY: PropTypes.number.isRequired,
   maxY: PropTypes.number.isRequired,
-  minY2: PropTypes.number,
-  maxY2: PropTypes.number,  
   label: PropTypes.string.isRequired,
   divideValues: PropTypes.number,
   label2: PropTypes.string,
-  Y2Percentage: PropTypes.bool,
   showPotential: PropTypes.bool
 }
 

@@ -23,31 +23,27 @@ const Charts = (props) => {
     <MainArea>
       {(props.scenarioSelection.showWelcome===true) && <Welcome closeWelcome={props.closeWelcome} />}
       <Flex>
-        <StackedBarChart chartName='CO2 Budget' chartTitle='CO2 Budget' selectedScenario={selectedScenario} 
-        selectedRegion={selectedRegion} combinedChart={true} label="Kt" minY={0} maxY={200000}
-        label2="CO2 budget (Kt)" minY2={0} maxY2={200000} Y2Percentage={false}
-        />        
         <StackedBarChart chartName='Biomass Consumption' chartTitle='Biomass Consumption' selectedScenario={selectedScenario} 
-        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={1040}
-        showPotential={true}
+        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={960}
+        showPotential={false}
         />
         <StackedBarChart chartName='Captured CO2' chartTitle='Captured CO2' selectedScenario={selectedScenario} 
         selectedRegion={selectedRegion} combinedChart={false} label="Kt" minY={0} maxY={44000}
-        />
+        />        
         <StackedBarChart chartName='Power Production' chartTitle='Power Production' selectedScenario={selectedScenario} 
         selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={2000}
         />
         <StackedBarChart chartName='District Heating Supply' chartTitle='District Heating Supply' selectedScenario={selectedScenario} 
-        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={600}
+        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={400}
         />
         <StackedBarChart chartName='Industry fuel consumption' chartTitle='Industry Fuel Consumption' selectedScenario={selectedScenario} 
         selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={1800}
         />        
-        <StackedAreaChart chartName='Transport Passenger Consumptio' chartTitle='Transport Passenger Consumption' selectedScenario={selectedScenario} 
-        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={560}
+        <StackedAreaChart chartName='Transport Passenger Consumption' chartTitle='Transport Passenger Consumption' selectedScenario={selectedScenario} 
+        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={720}
         />        
         <StackedAreaChart chartName='Transport Freight Consumption' chartTitle='Transport Freight Consumption' selectedScenario={selectedScenario} 
-        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={360}
+        selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={0} maxY={480}
         />                
         <StackedBarChart chartName='Car Stock' chartTitle='Car Stock' selectedScenario={selectedScenario} 
         selectedRegion={selectedRegion} combinedChart={false} label="k vehicles" minY={0} maxY={12000}
@@ -56,7 +52,7 @@ const Charts = (props) => {
         selectedRegion={selectedRegion} combinedChart={false} label="PJ" minY={-100} maxY={1200}
         />
         <StackedBarChart chartName='System Costs' chartTitle='System Costs' selectedScenario={selectedScenario} 
-        selectedRegion={selectedRegion} combinedChart={false} label="M Euro" minY={0} maxY={80000}
+        selectedRegion={selectedRegion} combinedChart={false} label="M Euro" minY={0} maxY={160000}
         />
       </Flex>
     </MainArea>

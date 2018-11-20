@@ -142,6 +142,7 @@ class ScenarioSelectionMenu extends React.Component {
             updateScenarioSelection={this.props.updateScenarioSelection}
             name='scenarioSelection'
             selectedValue={this.props.scenarioSelection.scenarioSelection}
+            selectedValue2={this.props.scenarioSelection.scenarioSelection2}            
             dimensionOptions={this.props.scenarioCombinations.scenarioOptions}
             dimensionTitle='Scenarios'
             narrowVersion={false}

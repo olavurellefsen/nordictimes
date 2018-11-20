@@ -45,6 +45,7 @@ export class App extends React.Component {
     super(props);
     this.state = {
       scenarioSelection: "Nordic CO2 Budget",
+      scenarioSelection2: "",
       regionSelection: ['Denmark','Norway' ,'Sweden'],
       showWelcome: true,
     }
@@ -57,8 +58,22 @@ export class App extends React.Component {
 
   UpdateScenarioSelection = (e, name, value) => {
     e.preventDefault();
-    this.setState(changeScenario(name, value));
-    this.props.history.push('/');
+    if(this.state.scenarioSelection2!=="") {
+      if(value===this.state.scenarioSelection) {
+        this.setState(changeScenario("scenarioSelection", this.state.scenarioSelection2));
+        this.setState(changeScenario("scenarioSelection2", ""));
+      } else {
+        if(value===this.state.scenarioSelection2) {
+          this.setState(changeScenario("scenarioSelection2", ""));
+        } else {
+          this.setState(changeScenario("scenarioSelection2", value));
+        }
+      }
+    } else {
+      if(value!==this.state.scenarioSelection) {
+        this.setState(changeScenario("scenarioSelection2", value));
+      }      
+    }
   }
 
   UpdateRegionSelection = (e, name, value) => {

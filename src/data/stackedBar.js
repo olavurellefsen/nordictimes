@@ -1744,7 +1744,7 @@ export default {
                 "region": "Denmark",
                 "indicatorGroups": [
                   {
-                    "indicatorGroup": "CO2 captured from coal (industry)",
+                    "indicatorGroup": "coal (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1773,7 +1773,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from coal (power and heat)",
+                    "indicatorGroup": "coal (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1802,7 +1802,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from natural gas (industry)",
+                    "indicatorGroup": "natural gas (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1831,7 +1831,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from natural gas (power and heat)",
+                    "indicatorGroup": "natural gas (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1860,7 +1860,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "Industry",
+                    "indicatorGroup": "biomass (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1894,7 +1894,7 @@ export default {
                 "region": "Norway",
                 "indicatorGroups": [
                   {
-                    "indicatorGroup": "CO2 captured from coal (industry)",
+                    "indicatorGroup": "coal (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1923,7 +1923,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from coal (power and heat)",
+                    "indicatorGroup": "coal (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1952,7 +1952,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from natural gas (industry)",
+                    "indicatorGroup": "natural gas (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -1981,7 +1981,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from natural gas (power and heat)",
+                    "indicatorGroup": "natural gas (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2010,7 +2010,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "Industry",
+                    "indicatorGroup": "biomass (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2039,7 +2039,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "Power and heat",
+                    "indicatorGroup": "biomass (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2073,7 +2073,7 @@ export default {
                 "region": "Sweden",
                 "indicatorGroups": [
                   {
-                    "indicatorGroup": "CO2 captured from coal (industry)",
+                    "indicatorGroup": "coal (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2102,7 +2102,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from coal (power and heat)",
+                    "indicatorGroup": "coal (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2131,7 +2131,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from natural gas (industry)",
+                    "indicatorGroup": "natural gas (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2160,7 +2160,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "CO2 captured from natural gas (power and heat)",
+                    "indicatorGroup": "natural gas (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2189,7 +2189,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "Industry",
+                    "indicatorGroup": "biomass (industry)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",
@@ -2218,7 +2218,7 @@ export default {
                     ]
                   },
                   {
-                    "indicatorGroup": "Power and heat",
+                    "indicatorGroup": "biomass (power and heat)",
                     "indicatorGroupValues": [
                       {
                         "period": "2010",

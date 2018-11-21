@@ -23,7 +23,7 @@ const Charts = (props) => {
     <MainArea>
       {(props.scenarioSelection.showWelcome===true) && <Welcome closeWelcome={props.closeWelcome} />}
       <Flex>
-        <StackedBarChart chartName='CO2 Budget' chartTitle='CO2 Budget' selectedScenario={selectedScenario} selectedScenario2={selectedScenario2} 
+        <StackedBarChart chartName='CO2 Emissions' chartTitle='CO2 Emissions' selectedScenario={selectedScenario} selectedScenario2={selectedScenario2} 
         selectedRegion={selectedRegion} label="PJ" minY={0} maxY={150000}
         />
         <StackedBarChart chartName='Biomass Primary Supply' chartTitle='Biomass Primary Supply' selectedScenario={selectedScenario} selectedScenario2={selectedScenario2} 

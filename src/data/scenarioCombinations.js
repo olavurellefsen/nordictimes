@@ -1,7 +1,7 @@
 export default {
   scenarioCombinations : {
     scenarioOptions : [
-      { "id": 0, "name": "Nordic CO2 Budget", "short_description": "Nordic CO2 Budget", "ultra_short_description": "CO2 bud" },
+      { "id": 0, "name": "Nordic IPCC 2014", "short_description": "Nordic IPCC 2014", "ultra_short_description": "IPCC 2014" },
       { "id": 1, "name": "Nordic NETP", "short_description": "Nordic NETP", "ultra_short_description": "NETP" }
     ],
     regionOptions : [

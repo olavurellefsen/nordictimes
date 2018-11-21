@@ -44,7 +44,7 @@ export class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scenarioSelection: "Nordic CO2 Budget",
+      scenarioSelection: "Nordic IPCC 2014",
       scenarioSelection2: "",
       regionSelection: ['Denmark','Norway' ,'Sweden'],
       showWelcome: true,

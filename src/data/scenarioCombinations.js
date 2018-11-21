@@ -1,8 +1,9 @@
 export default {
   scenarioCombinations : {
     scenarioOptions : [
-      { "id": 0, "name": "Nordic IPCC 2014", "short_description": "Nordic IPCC 2014", "ultra_short_description": "IPCC 2014" },
-      { "id": 1, "name": "Nordic NETP", "short_description": "Nordic NETP", "ultra_short_description": "NETP" }
+      { "id": 0, "name": "Nordic NETP", "short_description": "Nordic NETP", "ultra_short_description": "NETP" },
+      { "id": 1, "name": "Nordic IPCC 2014", "short_description": "Nordic IPCC 2014", "ultra_short_description": "IPCC 2014" },
+      { "id": 2, "name": "Nordic IPCC 2014 Bio", "short_description": "Nordic IPCC 2014 Bio", "ultra_short_description": "IPCC 2014bio" },
     ],
     regionOptions : [
       { "id": 0, "name": "Denmark", "country": "Denmark", "short_description": "Denmark", "ultra_short_description": "DK"},

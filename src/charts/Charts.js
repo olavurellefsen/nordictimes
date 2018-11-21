@@ -30,10 +30,10 @@ const Charts = (props) => {
         selectedRegion={selectedRegion} label="PJ" minY={0} maxY={960}
         />
         <StackedBarChart chartName='Biofuels Import & Domestic' chartTitle='Biofuels Import & Domestic' selectedScenario={selectedScenario} selectedScenario2={selectedScenario2} 
-        selectedRegion={selectedRegion} label="PJ" minY={0} maxY={960}
+        selectedRegion={selectedRegion} label="PJ" minY={0} maxY={800}
         />
         <StackedBarChart chartName='Biofuels Consumption' chartTitle='Biofuels Consumption' selectedScenario={selectedScenario} selectedScenario2={selectedScenario2} 
-        selectedRegion={selectedRegion} label="PJ" minY={0} maxY={960}
+        selectedRegion={selectedRegion} label="PJ" minY={0} maxY={800}
         />
         <StackedBarChart chartName='Captured CO2' chartTitle='Captured CO2' selectedScenario={selectedScenario} selectedScenario2={selectedScenario2} 
         selectedRegion={selectedRegion} label="Kt" minY={0} maxY={44000}
